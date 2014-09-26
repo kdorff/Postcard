@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var messageLabel: UILabel!
     
     @IBOutlet weak var enterNameTextField: UITextField!
@@ -30,8 +32,12 @@ class ViewController: UIViewController {
 
     @IBAction func sendMailButtonPressed(sender: UIButton) {
         // Do stuff
+        nameLabel.text = "Dear " + enterNameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+        nameLabel.hidden = false
         messageLabel.hidden = false
         messageLabel.text = enterMessageTextField.text
+        enterNameTextField.text = ""
         enterMessageTextField.text = ""
         enterMessageTextField.resignFirstResponder()
         messageLabel.textColor = UIColor.redColor()
